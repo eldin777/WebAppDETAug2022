@@ -1,0 +1,11 @@
+﻿@*No.of Pizzas available = @Model.Count
+<div class="table-responsive">
+<p>Details</p>
+<table class="table">
+@foreach(Pizza p in @Model)
+{
+    <tr><td>@p.Name</td></tr>
+}
+</table>"
+</div>"*@
+<partial name="_PizzaList" />
