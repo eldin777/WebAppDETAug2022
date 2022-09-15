@@ -1,6 +1,6 @@
 ﻿using MVCDemo.Models;
 
-namespace MVCDemo.Servics
+namespace MVCDemo.Services
 {
     public class FriendServices
     {

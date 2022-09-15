@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MVCDemo.Filter;
 using MVCDemo.Models;
 using System.Diagnostics;
 
@@ -28,6 +30,24 @@ namespace MVCDemo.Controllers
         {
             return View();
         }
+        [MyLog]
+        public string CSRetest()
+        {
+            return "C# retest is scheduled today @5pm; get prepared";
+        }
+        [ResponseCache(Duration =10)]
+        [MyLog]
+        public string retest()
+        {
+            return DateTime.Now.ToString();
+        }
+        [Authorize]
+        [MyLog]
+        public string[] retests()
+        {
+            return new string[] { "C#-8-Sep", "Tsql=12-Sep" };
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
